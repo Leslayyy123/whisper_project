@@ -3,21 +3,26 @@ import wave
 import pandas as pd
 
 data = []
-base_path = r"C:\Users\Leslie\Thesis\whisper_project"
+base_path = r"C:\Users\luvi\Documents\SANDRA\whisper_project"
 
-# Label mapping based on YOUR actual folder names
 def get_label(folder_name):
     folder = folder_name.lower()
-    if "whisper" in folder:
+    # Whisper (live only)
+    if folder.startswith("live_whisper"):
         return "whisper"
-    elif "normalspeech" in folder:
-        return "normal_speech"
-    elif "roomnoise" in folder:
+
+    # Room noise (live only)
+    if folder.startswith("live_roomnoise"):
         return "room_noise"
-    elif "distractor" in folder:
+
+    # Distractor (live only)
+    if folder.startswith("live_distractor"):
         return "distractor"
-    else:
-        return "unknown"
+
+    # Normal speech (live only)
+    if folder.startswith("live_normalspeech"):
+        return "normal_speech"
+    return "unknown"
 
 def get_duration(filepath):
     try:
@@ -34,6 +39,8 @@ for folder in os.listdir(base_path):
         continue
     
     label = get_label(folder)
+    if label == "unknown":
+        continue
     
     for file in os.listdir(folder_path):
         if file.endswith(".wav"):

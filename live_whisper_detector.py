@@ -24,7 +24,7 @@ CHECKPOINT_PATH = Path(__file__).resolve().parent / "whisper_classifier.pt"
 
 RTSP_URL = "rtsp://localhost:8554/classroom_audio"
 INPUT_SAMPLE_RATE = 16000
-FFMPEG_EXE = r"C:\Users\Leslie\Thesis\ffmpeg-8.1-essentials_build\bin\ffmpeg.exe"
+FFMPEG_EXE = r"C:\Users\luvi\Documents\SANDRA\ffmpeg-8.1-essentials_build\bin\ffmpeg.exe"
 
 SUMMARY_INTERVAL_SEC = 30
 DROPOUT = 0.1
